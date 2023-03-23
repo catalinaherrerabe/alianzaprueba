@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.DTO.ClientDTO;
+import com.example.dto.ClientDTO;
 import com.example.Exception.ClientException;
 import com.example.entities.ClientEntity;
 import com.example.mapper.IClientMapper;

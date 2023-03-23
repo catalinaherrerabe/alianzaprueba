@@ -1,5 +1,5 @@
 package com.example.mapper;
-import com.example.DTO.ClientDTO;
+import com.example.dto.ClientDTO;
 import com.example.entities.ClientEntity;
 import org.mapstruct.*;
 

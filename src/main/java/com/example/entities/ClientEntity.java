@@ -1,14 +1,21 @@
 package com.example.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "client")
 @Data
-public class ClientEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+public class ClientEntity implements Serializable {
+
+    private static final long serialVersionUID= -7281470466797616931L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

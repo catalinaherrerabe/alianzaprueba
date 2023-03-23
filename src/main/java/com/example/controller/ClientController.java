@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.DTO.ClientDTO;
+import com.example.dto.ClientDTO;
 import com.example.Exception.ClientException;
 import com.example.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
