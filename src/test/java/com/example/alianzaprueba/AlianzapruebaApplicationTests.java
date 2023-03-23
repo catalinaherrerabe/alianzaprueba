@@ -1,6 +1,7 @@
 package com.example.alianzaprueba;
 
 import com.example.Exception.ClientException;
+import com.example.dto.ClientDTO;
 import com.example.entities.ClientEntity;
 import com.example.repository.IClientRepository;
 import com.example.service.IClientService;
@@ -10,12 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.sql.SQLException;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.AssertNotEquals.assertNotEquals;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -41,7 +40,8 @@ class AlianzapruebaApplicationTests {
 		when(iClientRepository.findBySharedKey("abc")).thenReturn(c);
 		try {
 			log.info("Resultado: " + su.findBySharedKey("abc"));
-			assertEquals(c, "El cliente con Shared Key abc existe en nuestra base de datos");
+			ClientDTO client = su.findBySharedKey("abc");
+			assertEquals(c, client.getSharedKey());
 
 		} catch (ClientException e) {
 			throw new RuntimeException(e);
