@@ -1,0 +1,10 @@
+CREATE TABLE  public.client
+(
+    id integer NOT NULL,
+    "sharedKey" character varying COLLATE pg_catalog."default",
+    "businessId" character varying COLLATE pg_catalog."default",
+    email character varying COLLATE pg_catalog."default",
+    phone character varying COLLATE pg_catalog."default",
+    "dateAdd" timestamp without time zone,
+    CONSTRAINT client_pkey PRIMARY KEY (id)
+)

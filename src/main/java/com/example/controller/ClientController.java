@@ -20,7 +20,7 @@ public class ClientController {
     @Autowired
     private IClientService iClientService;
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity<ClientDTO> saveClient(@RequestBody ClientDTO clientDTO) throws ClientException {
         ClientDTO clientCreate = iClientService.saveClient(clientDTO);
         return new ResponseEntity<>(clientCreate, HttpStatus.CREATED);

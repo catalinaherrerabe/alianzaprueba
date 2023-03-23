@@ -20,7 +20,7 @@ class AlianzapruebaApplicationTests {
 	@MockBean
 	public IClientRepository iClientRepository;
 
-	@MockBean
+	@Autowired
 	public IClientService su;
 
 	@Test
@@ -34,7 +34,6 @@ class AlianzapruebaApplicationTests {
 	}
 
 	private Optional<ClientEntity> newSharedKey() {
-
 		 Optional<ClientEntity> c = Optional.of(new ClientEntity());
 		 c.get().setSharedKey("abc");
 		 return c;
