@@ -1,4 +1,4 @@
-CREATE TABLE  public.client
+CREATE TABLE IF NOT EXISTS public.client
 (
     id integer NOT NULL,
     "sharedKey" character varying COLLATE pg_catalog."default",
