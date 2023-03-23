@@ -10,8 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.sql.SQLException;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.AssertNotEquals.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -26,20 +30,25 @@ class AlianzapruebaApplicationTests {
 
 	@Test
 	void contextLoads() throws ClientException {
-		when(iClientRepository.findBySharedKey("abc")).thenReturn(newSharedKey());
+
+		Optional<ClientEntity> c = Optional.of(new ClientEntity());
+		c.get().setId(1);
+		c.get().setSharedKey("abc");
+		c.get().setBusinessId("hola");
+		c.get().setPhone("3103103101");
+		c.get().setEmail("c@prueba.co");
+
+		when(iClientRepository.findBySharedKey("abc")).thenReturn(c);
 		try {
 			log.info("Resultado: " + su.findBySharedKey("abc"));
-			assert equals("El cliente con Shared Key existe en nuestra base de datos");
+			assertEquals(c, "El cliente con Shared Key abc existe en nuestra base de datos");
+
 		} catch (ClientException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
-	private Optional<ClientEntity> newSharedKey() {
-		 Optional<ClientEntity> c = Optional.of(new ClientEntity());
-		 c.get().setSharedKey("abc");
-		 return c;
-	}
+
 
 
 }
